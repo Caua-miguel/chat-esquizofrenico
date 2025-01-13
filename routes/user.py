@@ -5,7 +5,7 @@ user_route = Blueprint('user', __name__)
 @user_route.route('/')
 def home():
     # Listar os usuários
-    return render_template('cadastro.html')
+    return render_template('lista_usuarios.html')
 
 @user_route.route('/new')
 def new_user():
