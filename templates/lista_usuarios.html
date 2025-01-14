@@ -23,40 +23,19 @@
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Exemplo de usuário 1 -->
+            <tbody id="lista-usuarios">
                 <tr>
-                    <th scope="row">1</th>
-                    <td>João Silva</td>
-                    <td>joao.silva@email.com</td>
-                    <td><span class="badge bg-success">Ativo</span></td>
-                    <td>
+                    
+                    {% for usuario in usuarios%}
+                        {% include 'item_usuario.html' %}
+                    {% endfor %}
+
+                    <!-- <td>
                         <button class="btn btn-info btn-sm">Editar</button>
                         <button class="btn btn-danger btn-sm">Excluir</button>
-                    </td>
+                    </td> -->
                 </tr>
                 <!-- Exemplo de usuário 2 -->
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Ana Costa</td>
-                    <td>ana.costa@email.com</td>
-                    <td><span class="badge bg-warning">Inativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Excluir</button>
-                    </td>
-                </tr>
-                <!-- Exemplo de usuário 3 -->
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Carlos Pereira</td>
-                    <td>carlos.pereira@email.com</td>
-                    <td><span class="badge bg-success">Ativo</span></td>
-                    <td>
-                        <button class="btn btn-info btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Excluir</button>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>
