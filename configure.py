@@ -18,5 +18,5 @@ def configure_db():
     db
     select_usuario()
     # db.commit()
-    cursor.close()
-    db.close()
+    # cursor.close()
+    # db.close()

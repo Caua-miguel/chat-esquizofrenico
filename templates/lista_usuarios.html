@@ -24,18 +24,11 @@
                 </tr>
             </thead>
             <tbody id="lista-usuarios">
-                <tr>
-                    
+                <tr> 
                     {% for usuario in usuarios%}
                         {% include 'item_usuario.html' %}
                     {% endfor %}
-
-                    <!-- <td>
-                        <button class="btn btn-info btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Excluir</button>
-                    </td> -->
                 </tr>
-                <!-- Exemplo de usuário 2 -->
             </tbody>
         </table>
     </div>
