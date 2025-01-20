@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from database.select import select_usuario
+from database.select import select_usuario, select_usuario_by_id
 from database.delete import delete_usuario
 
 user_route = Blueprint('user', __name__)
@@ -13,6 +13,6 @@ def home():
 def new_user():
     return render_template('cadastro.html')
 
-@user_route.route('/int:usuario.id/delete', methods=['DELETE'])
-def deletar_usuario(id):
-    delete_usuario(id)
+@user_route.route('/<int:id>')
+def usuario_id(id):
+    return render_template('lista_usuarios.html', usuario=select_usuario_by_id(id))

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Usuários</title>
     <!-- Link para o CSS do Bootstrap -->
@@ -24,10 +24,15 @@
                 </tr>
             </thead>
             <tbody id="lista-usuarios">
-                <tr> 
-                    {% for usuario in usuarios%}
+                <tr>{% if usuario%}
+                        
                         {% include 'item_usuario.html' %}
-                    {% endfor %}
+                        
+                    {% else %}
+                        {% for usuario in usuarios%}
+                            {% include 'item_usuario.html' %}
+                        {% endfor %}    
+                    {% endif %}
                 </tr>
             </tbody>
         </table>

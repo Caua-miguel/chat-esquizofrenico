@@ -21,3 +21,21 @@ def select_usuario():
         lista_usuarios.append(lista_usuario)
     
     return lista_usuarios
+
+def select_usuario_by_id(id):
+
+    cursor.execute(
+       '''
+        SELECT * FROM usuarios WHERE serial = %s;
+       ''', (id,)
+    )
+    dados_usuario_id = cursor.fetchone()
+
+    usuario_id = {
+            'id': dados_usuario_id[0],
+            'nome': dados_usuario_id[1],
+            'email': dados_usuario_id[2],
+            'status': dados_usuario_id[3],
+        }
+    
+    return usuario_id
