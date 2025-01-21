@@ -1,4 +1,5 @@
 from database.database import cursor
+from database.models.user import usuario
 
 def select_usuario():
     
@@ -10,16 +11,10 @@ def select_usuario():
         '''
     )
     dados_usuario = cursor.fetchall()
-
-    for usuario in dados_usuario:
-        lista_usuario = {
-            'id': usuario[0],
-            'nome': usuario[1],
-            'email': usuario[2],
-            'status': usuario[3],
-        }
-        lista_usuarios.append(lista_usuario)
     
+    for dado in dados_usuario:
+        lista_usuario = usuario(dado[0], dado[1], dado[2], dado[3])
+        lista_usuarios.append(lista_usuario)
     return lista_usuarios
 
 def select_usuario_by_id(id):
@@ -31,11 +26,6 @@ def select_usuario_by_id(id):
     )
     dados_usuario_id = cursor.fetchone()
 
-    usuario_id = {
-            'id': dados_usuario_id[0],
-            'nome': dados_usuario_id[1],
-            'email': dados_usuario_id[2],
-            'status': dados_usuario_id[3],
-        }
+    usuario_id = usuario(dados_usuario_id[0], dados_usuario_id[1], dados_usuario_id[2], dados_usuario_id[3])
     
     return usuario_id
