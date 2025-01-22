@@ -1,7 +1,7 @@
 from routes.home import home_route
 from routes.user import user_route
 from routes.chat import chat_route
-from database.database import db, cursor
+from database.database import db
 from database.select import select_usuario
 
 def configure_all(app):
