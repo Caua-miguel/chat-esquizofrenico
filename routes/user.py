@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, render_template
 from database.select import select_usuario, select_usuario_by_id
 from database.delete import delete_usuario
 
@@ -17,7 +17,8 @@ def new_user():
 def usuario_id(id):
     return render_template('lista_usuarios.html', usuario=select_usuario_by_id(id))
 
-@user_route.route('/<int:id>/delete', methods=['POST'])
+@user_route.route('/delete/<int:id>', methods=['POST'])
 def delete_user(id):
     delete_usuario(id)
-    return redirect(url_for('user.home'))
+    lista = select_usuario()
+    return render_template('lista_usuarios.html', usuarios=lista)
