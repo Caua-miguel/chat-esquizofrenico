@@ -14,11 +14,11 @@ def home():
 def usuario_id(id):
     return render_template('lista_usuarios.html', usuario=select_usuario_by_id(id))
 
-@user_route.route('/cadastrar', methods=['POST'])
+@user_route.route('/cadastrar', methods=['POST', 'GET'])
 def insert_user():
     return render_template('cadastro.html')
 
-@user_route.route('editar/<int:id>', methods=['PUT'])
+@user_route.route('editar/<int:id>', methods=['PUT', 'GET'])
 def edit_user(id):
     # data = request.get_json()
 
