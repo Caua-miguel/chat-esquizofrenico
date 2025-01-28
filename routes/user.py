@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request, jsonify
+from flask import Blueprint, render_template, request
 from database.select import select_usuario, select_usuario_by_id
-from database.update import update_user_by_id
+from database.insert import insert_user
+# from database.update import update_user_by_id
 from database.delete import delete_usuario
 
 user_route = Blueprint('user', __name__)
@@ -14,11 +15,23 @@ def home():
 def usuario_id(id):
     return render_template('lista_usuarios.html', usuario=select_usuario_by_id(id))
 
-@user_route.route('/cadastrar', methods=['POST'])
-def insert_user():
+@user_route.route('/new')
+def form_usuario():
     return render_template('cadastro.html')
 
-@user_route.route('editar/<int:id>', methods=['PUT'])
+@user_route.route('/cadastrar', methods=['POST'])
+def add_user():
+
+    data = request.form
+
+    nome = data['nome']
+    email = data['email']
+
+    novo_usuario = insert_user(nome, email)
+
+    return render_template('item_usuario.html', usuario=novo_usuario)
+
+@user_route.route('editar/<int:id>', methods=['POST'])
 def edit_user(id):
     # data = request.get_json()
 
