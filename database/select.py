@@ -21,7 +21,7 @@ def select_usuario_by_id(id):
 
     cursor.execute(
        '''
-        SELECT * FROM usuarios WHERE serial = %s;
+        SELECT * FROM usuarios WHERE id = %s;
        ''', (id,)
     )
     dados_usuario_id = cursor.fetchone()

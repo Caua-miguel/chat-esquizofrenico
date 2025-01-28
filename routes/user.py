@@ -27,9 +27,9 @@ def add_user():
     nome = data['nome']
     email = data['email']
 
-    novo_usuario = insert_user(nome, email)
-
-    return render_template('item_usuario.html', usuario=novo_usuario)
+    insert_user(nome, email)
+    lista = select_usuario()
+    return render_template('lista_usuarios.html', usuarios=lista)
 
 @user_route.route('editar/<int:id>', methods=['POST'])
 def edit_user(id):
