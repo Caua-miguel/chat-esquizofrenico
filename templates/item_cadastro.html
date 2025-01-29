@@ -1,7 +1,7 @@
 <form
 
     {% if usuario %}
-        action="{{ url_for('user.atualizar_usuario', id=usuario.id) }}" 
+        action="{{ url_for('user.form_edit_usuario', id=usuario.id) }}" 
     {% else %}
         action="{{ url_for('user.add_user') }}" 
     {% endif %}
@@ -25,6 +25,6 @@
         <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha" required>
     </div> -->
     <button type="submit" class="btn btn-primary w-100">
-        {% if cliente %}Salvar{% else %}Criar{% endif %}
+        {% if usuario %}Salvar{% else %}Criar{% endif %}
     </button>
 </form>

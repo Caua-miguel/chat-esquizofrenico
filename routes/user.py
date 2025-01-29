@@ -16,7 +16,7 @@ def usuario_id(id):
     return render_template('lista_usuarios.html', usuario=select_usuario_by_id(id))
 
 @user_route.route('/new')
-def form_usuario():
+def form_add_usuario():
     return render_template('cadastro.html')
 
 @user_route.route('/cadastrar', methods=['POST'])
@@ -31,17 +31,22 @@ def add_user():
 
     return render_template('item_usuario.html', usuario=novo_usuario)
 
-@user_route.route('editar/<int:id>', methods=['POST'])
-def edit_user(id):
-    # data = request.get_json()
-
-    # nome = data["nome"]
-    # email = data["email"]
-    # status = data["status"]
-
-    # update_user_by_id(id, nome, email, status)
+@user_route.route('/edit/<int:id>', methods=['POST'])
+def form_edit_usuario(id):
 
     return render_template('cadastro.html', usuario=select_usuario_by_id(id))
+
+# @user_route.route('editar/<int:id>', methods=['POST'])
+# def edit_user(id):
+#     # data = request.get_json()
+
+#     # nome = data["nome"]
+#     # email = data["email"]
+#     # status = data["status"]
+
+#     # update_user_by_id(id, nome, email, status)
+
+#     return render_template('cadastro.html', usuario=select_usuario_by_id(id))
 
 @user_route.route('/delete/<int:id>', methods=['POST'])
 def delete_user(id):
