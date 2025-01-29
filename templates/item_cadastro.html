@@ -1,7 +1,7 @@
 <form
 
     {% if usuario %}
-        action="{{ url_for('user.form_edit_usuario', id=usuario.id) }}" 
+        action="{{ url_for('user.edit_user', id=usuario.id) }}" 
     {% else %}
         action="{{ url_for('user.add_user') }}" 
     {% endif %}
