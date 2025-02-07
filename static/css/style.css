@@ -145,6 +145,25 @@ section#hero {
     width: 290px;
 }
 
+.front-face {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: url('https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.contents {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    perspective: 100px;
+    transform: translateY(-50%) translateZ(60px);
+} /* 3:30 */
+
+
 /* RESPONSIVE DESIGN */
 @media (max-width: 992px) {
     .navbar .links,
