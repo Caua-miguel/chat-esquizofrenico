@@ -8,7 +8,7 @@
 body {
     height: 100vh;
     background-color: #000;
-    background-image: url('https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1517&q=80');
+    background-image: url('https://images.unsplash.com/photo-1463143296037-46790ff95a7e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-position: center;
 }
@@ -20,7 +20,7 @@ li {
 a {
     text-decoration: none;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 a:hover {
@@ -45,7 +45,7 @@ header {
 }
 
 .navbar .logo a {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -56,19 +56,19 @@ header {
 
 .navbar .toggle_btn {
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
     display: none;
 }
 
 .action_btn {
-    background-color: orange;
+    background-color: #043348;
     color: #fff;
     padding: 0.5rem 1rem;
     border: none;
     outline: none;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     font-weight: bold;
     cursor: pointer;
     transition: scale 0.2 ease;
@@ -119,50 +119,148 @@ header {
 section#hero {
     height: calc(100vh - 60px);
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     text-align: center;
     color: #fff;
 }
 
-#hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
 /* CARDS */
-.center, .front-face,
+/* .center, .center_2, .center_3, .center_4, .front-face,
 .contents, .back-face {
     position: absolute;
-}
+} */
 
 .center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* top: 50%;
+    left: 25%; */
+    /* transform: translate(-50%, -50%); */
     height: 400px;
     width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
-.front-face {
+.center_2 {
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.center_3 {
+    /* top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%); */
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.center_4 {
+    /* top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%); */
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.front-face, .back-face {
+    position: absolute;
     height: 100%;
     width: 100%;
     text-align: center;
-    background: url('https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg');
+    background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url('https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(.4, .2, .2, 1);
 }
 
 .contents {
+    position: absolute;
     left: 0;
     top: 50%;
     width: 100%;
     perspective: 100px;
     transform: translateY(-50%) translateZ(60px);
-} /* 3:30 */
+}
 
+/* .front p {
+    color: white;
+    font-size: 35px;
+    margin-bottom: 15px;
+} */
+
+/* .front p::after {
+    content: '';
+    display: block;
+    left: 0;
+    right: 0;
+    height: 2px;
+    width: 100px;
+    background: white;
+    margin: 0 auto;
+    margin-top: 10px;
+} */
+
+/* .front span {
+    color: white;
+    font-size: 23px;
+} */
+
+.back-face {
+    transform: rotateY(180deg);
+    background: linear-gradient(45deg, #043348 0%, #032535 100%);
+}
+
+.back {
+    color: white;
+}
+
+.back h2 {
+    font-size: 33px;
+    padding-bottom: 5px;
+}
+
+.back span {
+    font-size: 25px;
+}
+
+.icons {
+    margin: 10px 0;
+}
+
+.icons .fab {
+    color: #042f4b;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    background: white;
+    border-radius: 50%;
+    line-height: 40px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.center:hover > .back-face, .center_2:hover > .back-face, 
+.center_3:hover > .back-face, .center_4:hover > .back-face{
+    transform: rotateY(0deg);
+}
+
+.center:hover > .front-face, .center_2:hover > .front-face,
+.center_3:hover > .front-face, .center_4:hover > .front-face {
+    transform: rotateY(-180deg);
+}
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 992px) {
