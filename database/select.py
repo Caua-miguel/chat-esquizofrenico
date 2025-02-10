@@ -7,13 +7,13 @@ def select_usuario():
     
     cursor.execute(
         '''
-        SELECT * FROM usuarios;
+        SELECT * FROM lib;
         '''
     )
     dados_usuario = cursor.fetchall()
     
     for dado in dados_usuario:
-        lista_usuario = usuario(dado[0], dado[1], dado[2], dado[3])
+        lista_usuario = usuario(dado[0], dado[1], dado[2], dado[3], dado[4])
         lista_usuarios.append(lista_usuario)
     return lista_usuarios
 
@@ -21,7 +21,7 @@ def select_usuario_by_id(id):
 
     cursor.execute(
        '''
-        SELECT * FROM usuarios WHERE id = %s;
+        SELECT * FROM lib WHERE id = %s;
        ''', (id,)
     )
     dados_usuario_id = cursor.fetchone()

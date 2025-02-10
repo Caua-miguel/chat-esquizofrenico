@@ -24,10 +24,12 @@ def add_user():
 
     data = request.form
 
-    nome = data['nome']
-    email = data['email']
+    titulo = data["titulo"]
+    autor = data["autor"]
+    isbn = data["isbn"]
+    categoria = data["categoria"]
 
-    insert_user(nome, email)
+    insert_user(id, titulo, autor, isbn, categoria)
     lista = select_usuario()
     return render_template('lista_usuarios.html', usuarios=lista)
 
@@ -40,10 +42,12 @@ def form_edit_usuario(id):
 def edit_user(id):
     data = request.form
 
-    nome = data["nome"]
-    email = data["email"]
+    titulo = data["titulo"]
+    autor = data["autor"]
+    isbn = data["isbn"]
+    categoria = data["categoria"]
 
-    update_user_by_id(id, nome, email)
+    update_user_by_id(id, titulo, autor, isbn, categoria)
 
     lista = select_usuario()
     return render_template('lista_usuarios.html', usuarios=lista)

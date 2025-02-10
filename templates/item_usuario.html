@@ -1,8 +1,9 @@
 <tr id="usuario-{{usuario.id}}">
     <th scope="row">{{ usuario.id }}</th>
-    <td>{{ usuario.nome }}</td>
-    <td>{{ usuario.email }}</td>
-    <td>{{ usuario.status }}</td>
+    <td>{{ usuario.titulo }}</td>
+    <td>{{ usuario.autor }}</td>
+    <td>{{ usuario.isbn }}</td>
+    <td>{{ usuario.categoria }}</td>
     <td>
         <form action="{{ url_for('user.form_edit_usuario', id=usuario.id) }}" method="post" style="display:inline;">
             <input type="hidden" name="_method" value="PUT">

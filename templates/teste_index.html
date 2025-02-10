@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/a2c653daa5.js" crossorigin="anonymous"></script>
     <title>Biblioteca</title>
 </head>
 <body>
@@ -35,11 +39,6 @@
 
     <main>
         <section id="hero">
-            <!-- <h1>Welcome</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui alias doloribus facere similique laborum numquam ullam, 
-                eligendi voluptatem.
-            </p> -->
             <!-- CARDS -->
             <div class="center">
                 <div class="front-face"></div>
@@ -98,6 +97,27 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Footer -->
+         <section id="body-footer">
+            <footer>
+                <ul class="social-icons">
+                    <li>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </li>
+                </ul>
+                <p>Create with by @caua-miguel</p>
+            </footer> 
+         </section>
     </main>
 
     <script>

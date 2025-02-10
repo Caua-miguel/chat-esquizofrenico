@@ -1,9 +1,9 @@
 from database.database import db, cursor
 
-def insert_user(nome, email):
+def insert_user(titulo, autor, isbn, categoria):
     cursor.execute(
         '''
-        INSERT INTO usuarios (nome, email, status) VALUES (%s, %s, %s)
-        ''', (nome, email, True)
+        INSERT INTO lib (titulo, autor, isbn, categoria) VALUES (%s, %s, %s, %s)
+        ''', (titulo, autor, isbn, categoria)
     )
     db.commit()

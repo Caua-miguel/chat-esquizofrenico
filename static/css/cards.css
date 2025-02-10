@@ -1,0 +1,95 @@
+/* CARDS */
+.center {
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.center_2 {
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.center_3 {
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.center_4 {
+    height: 400px;
+    width: 290px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.front-face, .back-face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)), url('https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.contents {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    perspective: 100px;
+    transform: translateY(-50%) translateZ(60px);
+}
+
+.back-face {
+    transform: rotateY(180deg);
+    background: linear-gradient(45deg, #043348 0%, #032535 100%);
+}
+
+.back {
+    color: white;
+}
+
+.back h2 {
+    font-size: 33px;
+    padding-bottom: 5px;
+}
+
+.back span {
+    font-size: 25px;
+}
+
+.icons {
+    margin: 10px 0;
+}
+
+.icons .fab {
+    color: #042f4b;
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+    background: white;
+    border-radius: 50%;
+    line-height: 40px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.center:hover > .back-face, .center_2:hover > .back-face, 
+.center_3:hover > .back-face, .center_4:hover > .back-face{
+    transform: rotateY(0deg);
+}
+
+.center:hover > .front-face, .center_2:hover > .front-face,
+.center_3:hover > .front-face, .center_4:hover > .front-face {
+    transform: rotateY(-180deg);
+}
