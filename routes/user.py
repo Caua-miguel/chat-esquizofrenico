@@ -1,11 +1,12 @@
-from flask import Blueprint, render_template, request
-from database.select import select_usuario, select_usuario_by_id, select_colecao
+from flask import Blueprint, render_template, request, redirect, url_for
+from database.select import select_usuario, select_usuario_by_id, select_colecao, select_lib, select_lib_by_id
 from database.insert import insert_user, insert_colecao
 from database.update import update_user_by_id
 from database.delete import delete_usuario, delete_colecao
 
 user_route = Blueprint('user', __name__)
 usuarios = select_usuario()
+lib = select_lib()
 lista_colecao = select_colecao()
 
 @user_route.route('/')
@@ -14,7 +15,7 @@ def home():
 
 @user_route.route('/explorar')
 def explorar():
-    return render_template('explorar.html', usuarios=usuarios)
+    return render_template('explorar.html', usuarios=lib)
 
 @user_route.route('/colecao')
 def colecao():
@@ -33,14 +34,12 @@ def add_user():
 
     data = request.form
 
-    titulo = data["titulo"]
-    autor = data["autor"]
-    isbn = data["isbn"]
-    categoria = data["categoria"]
+    nome = data["nome"]
+    email = data["email"]
+    senha = data["senha"]
 
-    insert_user(titulo, autor, isbn, categoria)
-    lista = select_usuario()
-    return render_template('lista_usuarios.html', usuarios=lista)
+    insert_user(nome, email, senha)
+    return redirect(url_for('home.home'))
 
 @user_route.route('/edit/<int:id>', methods=['POST'])
 def form_edit_usuario(id):
@@ -58,7 +57,7 @@ def edit_user(id):
 
     update_user_by_id(id, titulo, autor, isbn, categoria)
 
-    lista = select_usuario()
+    lista = select_lib()
     return render_template('lista_usuarios.html', usuarios=lista)
 
 @user_route.route('colecao/add/<int:id>', methods=['POST'])

@@ -1,7 +1,7 @@
 class usuario:
-    def __init__(self, id, titulo, autor, isbn, categoria):
+    def __init__(self, id, nome, email, status, senha):
         self.id = id
-        self.titulo = titulo
-        self.autor = autor
-        self.isbn = isbn
-        self.categoria = categoria
+        self.nome = nome
+        self.email = email
+        self.status = status
+        self.senha = senha
