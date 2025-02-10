@@ -7,3 +7,11 @@ def delete_usuario(id):
         ''', (id,)
     )
     db.commit()
+
+def delete_colecao(id):
+    cursor.execute(
+        '''
+        DELETE FROM colecao WHERE id = %s
+        ''', (id,)
+    )
+    db.commit()

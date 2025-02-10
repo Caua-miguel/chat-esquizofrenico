@@ -1,6 +1,7 @@
 from database.database import cursor
 from database.models.user import usuario
 
+# Tabela lib
 def select_usuario():
     
     lista_usuarios = []
@@ -29,3 +30,20 @@ def select_usuario_by_id(id):
     usuario_id = usuario(dados_usuario_id[0], dados_usuario_id[1], dados_usuario_id[2], dados_usuario_id[3], dados_usuario_id[4])
     
     return usuario_id
+
+# Tabela colecao
+def select_colecao():
+    
+    lista_colecao = []
+    
+    cursor.execute(
+        '''
+        SELECT * FROM colecao;
+        '''
+    )
+    dados_colecao = cursor.fetchall()
+    
+    for dado in dados_colecao:
+        lista = usuario(dado[0], dado[1], dado[2], dado[3], dado[4])
+        lista_colecao.append(lista)
+    return lista_colecao

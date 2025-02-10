@@ -1,11 +1,12 @@
 from flask import Blueprint, render_template, request
-from database.select import select_usuario, select_usuario_by_id
-from database.insert import insert_user
+from database.select import select_usuario, select_usuario_by_id, select_colecao
+from database.insert import insert_user, insert_colecao
 from database.update import update_user_by_id
-from database.delete import delete_usuario
+from database.delete import delete_usuario, delete_colecao
 
 user_route = Blueprint('user', __name__)
 usuarios = select_usuario()
+lista_colecao = select_colecao()
 
 @user_route.route('/')
 def home():
@@ -14,6 +15,10 @@ def home():
 @user_route.route('/explorar')
 def explorar():
     return render_template('explorar.html', usuarios=usuarios)
+
+@user_route.route('/colecao')
+def colecao():
+    return render_template('colecao.html', usuarios=lista_colecao)
 
 @user_route.route('/<int:id>')
 def usuario_id(id):
@@ -56,8 +61,22 @@ def edit_user(id):
     lista = select_usuario()
     return render_template('lista_usuarios.html', usuarios=lista)
 
+@user_route.route('colecao/add/<int:id>', methods=['POST'])
+def add_colecao(id):
+
+    insert_colecao(id)
+
+    lista = select_colecao()
+    return render_template('colecao.html', usuarios=lista)
+
 @user_route.route('/delete/<int:id>', methods=['POST'])
 def delete_user(id):
     delete_usuario(id)
     lista = select_usuario()
     return render_template('lista_usuarios.html', usuarios=lista)
+
+@user_route.route('/colecao/delete/<int:id>', methods=['POST'])
+def delete_colecao_by_id(id):
+    delete_colecao(id)
+    lista = select_colecao()
+    return render_template('colecao.html', usuarios=lista)

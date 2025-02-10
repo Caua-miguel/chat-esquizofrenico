@@ -7,8 +7,8 @@
     flex-grow: 1;
 }
 
-.btn-add {
-    background-color: #042f4b;
+.btn-excluir {
+    background-color: #4b0404;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -18,18 +18,15 @@
     transition: transform 0.2s, background-color 0.3s ease;
 }
 
-
-.btn-add:hover {
-    background-color: #03557d;
+.btn-excluir:hover {
+    background-color: #7d0303;
 }
 
-
-.btn-add:focus {
+.btn-excluir:focus {
     outline: none;
     transform: scale(1.1);
 }
 
-
-.btn-add:active {
+.btn-excluir:active {
     transform: scale(0.98);
 }
