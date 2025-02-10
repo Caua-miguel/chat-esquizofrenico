@@ -11,6 +11,10 @@ usuarios = select_usuario()
 def home():
     return render_template('lista_usuarios.html', usuarios=usuarios)
 
+@user_route.route('/explorar')
+def explorar():
+    return render_template('explorar.html', usuarios=usuarios)
+
 @user_route.route('/<int:id>')
 def usuario_id(id):
     return render_template('lista_usuarios.html', usuario=select_usuario_by_id(id))
@@ -29,7 +33,7 @@ def add_user():
     isbn = data["isbn"]
     categoria = data["categoria"]
 
-    insert_user(id, titulo, autor, isbn, categoria)
+    insert_user(titulo, autor, isbn, categoria)
     lista = select_usuario()
     return render_template('lista_usuarios.html', usuarios=lista)
 

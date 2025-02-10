@@ -1,0 +1,35 @@
+.card {
+    height: 100%; /* Faz com que o card ocupe a altura total da coluna */
+    width: 300px;
+}
+
+.card-body {    
+    flex-grow: 1; /* Garante que o conteúdo da parte do corpo do card ocupe o máximo de espaço possível */ 
+}
+
+.btn-add {
+    background-color: #042f4b; /* Cor do fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostrar que é clicável */
+    transition: transform 0.2s, background-color 0.3s ease; /* Animações para o botão */
+}
+
+/* Efeito de hover - quando o botão é passado o mouse */
+.btn-add:hover {
+    background-color: #03557d; /* Cor de fundo ao passar o mouse */
+}
+
+/* Efeito de foco - quando o botão é focado */
+.btn-add:focus {
+    outline: none; /* Remove o contorno padrão do navegador */
+    transform: scale(1.1); /* Leve aumento no tamanho do botão */
+}
+
+/* Efeito de clique - animação quando pressionado */
+.btn-add:active {
+    transform: scale(0.98); /* Leve redução no tamanho do botão quando clicado */
+}

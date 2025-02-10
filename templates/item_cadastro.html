@@ -9,20 +9,20 @@
     method="POST">
 
     <div class="mb-3">
-        <label for="nome" class="form-label">Nome</label>
-        <input type="text" class="form-control" placeholder="Digite seu nome" name="nome" {% if usuario%}value="{{usuario.titulo}}"{% endif %}>
+        <label class="form-label">titulo</label>
+        <input type="text" class="form-control" placeholder="Digite seu nome" name="titulo" {% if usuario%}value="{{usuario.titulo}}"{% endif %}>
     </div>
     <div class="mb-3">
-        <label for="email" class="form-label">autor</label>
-        <input type="email" class="form-control" placeholder="Digite seu e-mail" name="autor" {% if usuario%}value="{{usuario.autor}}"{% endif %}>
+        <label class="form-label">autor</label>
+        <input type="text" class="form-control" placeholder="Digite nome do autor" name="autor" {% if usuario%}value="{{usuario.autor}}"{% endif %}>
     </div>
     <div class="mb-3">
-        <label for="email" class="form-label">isbn</label>
-        <input type="email" class="form-control" placeholder="Digite seu e-mail" name="isbn" {% if usuario%}value="{{usuario.isbn}}"{% endif %}>
+        <label class="form-label">isbn</label>
+        <input type="text" class="form-control" placeholder="Digite o isbn do livro" name="isbn" {% if usuario%}value="{{usuario.isbn}}"{% endif %}>
     </div>
     <div class="mb-3">
-        <label for="email" class="form-label">categoria</label>
-        <input type="email" class="form-control" placeholder="Digite seu e-mail" name="categoria" {% if usuario%}value="{{usuario.categoria}}"{% endif %}>
+        <label class="form-label">categoria</label>
+        <input type="text" class="form-control" placeholder="Digite a categoria" name="categoria" {% if usuario%}value="{{usuario.categoria}}"{% endif %}>
     </div>
     <!-- <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>

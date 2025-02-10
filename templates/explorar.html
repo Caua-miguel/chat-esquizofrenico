@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleExplorar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cardsExplore.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}" />
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo"><a href="#">Biblioteca Virtual</a></div>
+                <ul class="links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/user/explorar">Explorar</a></li>
+                    <li><a href="services">Categorias</a></li>
+                    <li><a href="contact">Coleção</a></li>
+                </ul>
+                <a href="/user/new" class="action_btn">Login</a>
+                <div class="toggle_btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+
+            <div class="dropdown_menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/user/explorar">Explorar</a></li>
+                <li><a href="services">Categorias</a></li>
+                <li><a href="contact">Coleção</a></li>
+                <li><a href="/user/new" class="action_btn">Login</a></li>
+            </div>
+    </header>
+
+    <!-- Lista -->
+    <section id="container" class="container py-4">
+        {% if usuario %}
+            {% include 'item_explorar.html' %}
+        {% else %}
+            
+                {% for usuario in usuarios %}
+    
+                    {% include 'item_explorar.html' %}
+                    
+                {% endfor %}
+            
+        {% endif %}
+    </section>
+    
+    
+
+      <!-- Footer -->
+      <section id="body-footer">
+        <footer>
+            <ul class="social-icons">
+                <li>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+            </ul>
+            <p>Create with by @caua-miguel</p>
+        </footer> 
+     </section>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

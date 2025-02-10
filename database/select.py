@@ -26,6 +26,6 @@ def select_usuario_by_id(id):
     )
     dados_usuario_id = cursor.fetchone()
 
-    usuario_id = usuario(dados_usuario_id[0], dados_usuario_id[1], dados_usuario_id[2], dados_usuario_id[3])
+    usuario_id = usuario(dados_usuario_id[0], dados_usuario_id[1], dados_usuario_id[2], dados_usuario_id[3], dados_usuario_id[4])
     
     return usuario_id

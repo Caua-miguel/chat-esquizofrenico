@@ -1,0 +1,31 @@
+<div id="usuario-{{usuario.id}}">
+    <div class="col">
+        <div class="card">
+            <img src="https://marketplace.canva.com/EAE4oJOnMh0/1/0/1003w/canva-capa-de-livro-de-suspense-O7z4yw4a5k8.jpg" class="card-img-top" alt="Imagem do Card" />
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <tr>
+                        <td><strong>Titulo: <br> </strong></td>
+                        <td>{{ usuario.titulo }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Autor:</strong></td>
+                        <td>{{ usuario.autor }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISBN:</strong></td>
+                        <td>{{ usuario.isbn }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Categoria:</strong></td>
+                        <td>{{ usuario.categoria }}</td>
+                    </tr>
+                </table>
+                    <form action="{{ url_for('user.form_edit_usuario', id=usuario.id) }}" method="post" style="display:inline;">
+                            <input type="hidden" name="_method" value="PUT">
+                            <button type="submit" class="btn-add">Adicionar</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
