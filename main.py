@@ -1,9 +1,15 @@
 from flask import Flask
-from configure import configure_all
+# import flask_login
+from setup import setup_app
 
 
 app = Flask(__name__)
+# app.secret_key = 'super'
 
-configure_all(app)
+setup_app(app)
+
+# login_manager = flask_login.LoginManager()
+
+# login_manager.init_app(app)
 
 app.run(debug=True)

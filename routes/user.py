@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from database.select import select_usuario, select_usuario_by_id, select_colecao, select_lib, select_lib_by_id
+from database.select import select_usuario, select_usuario_by_id, select_colecao, select_lib
 from database.insert import insert_user, insert_colecao
 from database.update import update_user_by_id
 from database.delete import delete_usuario, delete_colecao
@@ -39,6 +39,7 @@ def add_user():
     senha = data["senha"]
 
     insert_user(nome, email, senha)
+
     return redirect(url_for('home.home'))
 
 @user_route.route('/edit/<int:id>', methods=['POST'])
