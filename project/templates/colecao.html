@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styleExplorar.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/cardsExplore.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cardsColecao.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}" />
     <title>Document</title>
 </head>
@@ -19,11 +19,11 @@
             <div class="logo"><a href="/">Biblioteca Virtual</a></div>
                 <ul class="links">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/user/explorar">Explorar</a></li>
+                    <li><a href="/lib/explorar">Explorar</a></li>
                     <li><a href="services">Categorias</a></li>
-                    <li><a href="/user/colecao">Coleção</a></li>
+                    <li><a href="/lib/colecao">Coleção</a></li>
                 </ul>
-                <a href="/user/new" class="action_btn">Login</a>
+                <a href="/lib/new" class="action_btn">Login</a>
                 <div class="toggle_btn">
                     <i class="fa-solid fa-bars"></i>
                 </div>
@@ -31,29 +31,25 @@
 
             <div class="dropdown_menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="/user/explorar">Explorar</a></li>
+                <li><a href="/lib/explorar">Explorar</a></li>
                 <li><a href="services">Categorias</a></li>
-                <li><a href="/user/colecao">Coleção</a></li>
-                <li><a href="/user/new" class="action_btn">Login</a></li>
+                <li><a href="/lib/colecao">Coleção</a></li>
+                <li><a href="/lib/new" class="action_btn">Login</a></li>
             </div>
     </header>
 
     <!-- Lista -->
     <section id="container" class="container py-4">
         {% if usuario %}
-            {% include 'item_explorar.html' %}
+            {% include 'item_colecao.html' %}
+        {% elif usuarios|length >= 1 %}
+            {% for usuario in usuarios %}
+                {% include 'item_colecao.html' %}
+            {% endfor %}
         {% else %}
-            
-                {% for usuario in usuarios %}
-    
-                    {% include 'item_explorar.html' %}
-                    
-                {% endfor %}
-            
+            <p>Você não tem itens adicionados ainda!</p>
         {% endif %}
-    </section>
-    
-    
+    </section>    
 
       <!-- Footer -->
       <section id="body-footer">

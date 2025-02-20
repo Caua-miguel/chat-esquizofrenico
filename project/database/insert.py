@@ -1,4 +1,4 @@
-from database.database import db, cursor
+from project.database.database import db, cursor
 
 def insert_user(nome, email, senha):
     cursor.execute(

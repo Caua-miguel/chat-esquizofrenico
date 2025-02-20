@@ -1,4 +1,4 @@
-from database.database import db, cursor
+from project.database.database import db, cursor
 
 def delete_usuario(id):
     cursor.execute(

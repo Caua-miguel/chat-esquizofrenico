@@ -1,6 +1,6 @@
-from database.database import cursor
-from database.models.user import usuario
-from database.models.lib import lib
+from project.database.database import cursor
+from project.database.models.user import usuario
+from project.database.models.lib import lib
 
 # Tabela usuário
 def select_usuario():

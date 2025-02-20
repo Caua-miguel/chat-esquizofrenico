@@ -1,4 +1,4 @@
-from database.database import db, cursor
+from project.database.database import db, cursor
 
 def update_user_by_id(id, titulo, autor, isbn, categoria):
     cursor.execute(
