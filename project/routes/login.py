@@ -1,52 +1,28 @@
-# from flask import Blueprint, render_template, request, redirect, url_for
-# from database.select import select_usuario_by_email, select_usuario
-# from flask_login import login_user, login_required
-# from main import login_manager
+from flask import Blueprint, request, render_template, redirect, url_for
+from database.models.user import users, User
+from flask_login import login_user, login_required, current_user, logout_user
 
-# login_usuario = Blueprint('login', __name__)
+login_route = Blueprint('login', __name__, template_folder='templates')
 
-# usuarios = select_usuario()
-
-# @login_manager.user_loader
-# def user_loader(email):
-#     usuario_logado = select_usuario_by_email(email)
+@login_route.route('/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('cadastro.html')
     
-#     if usuario_logado is None:
-#         return None
+    login = request.form['username']
+    if login in users and request.form['password'] == users [login]['password']:
+        user = User()
+        user.id = login
+        login_user(user)
+        return redirect(url_for('login.protected'))
+    return 'Bad login'
 
-#     return usuario_logado
+@login_route.route('/protected')
+@login_required
+def protected():
+    return 'Logged in as: ' + current_user.id
 
-# @login_manager.request_loader
-# def request_loader(request):
-    
-#     data = request.form
-
-#     email = data["email"]
-
-#     usuario_logado = select_usuario_by_email(email)
-
-#     if usuario_logado is None:
-#         return None
-    
-#     return usuario_logado
-
-# @login_usuario.route('/', method = ['GET'])
-# def home():
-
-#     if request.method == 'GET':
-
-#         return render_template('teste_index.html')
-    
-#     email = request.form['email']
-#     if email in usuarios and request.form['senha'] == usuarios[email]['senha']:
-#         usuario_logado = select_usuario_by_email(email)
-#         login_user(usuario_logado)
-
-#         return redirect(url_for('protected'))
-    
-#     return 'Bad login'
-
-# @login_usuario.route('/protected')
-# @login_required
-# def protected():
-#     return 'Logged in your accont!'
+@login_route.route('/logout')
+def logout():
+    logout_user()
+    return 'Logged out'

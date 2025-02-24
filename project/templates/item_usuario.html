@@ -5,12 +5,12 @@
     <td>{{ usuario.isbn }}</td>
     <td>{{ usuario.categoria }}</td>
     <td>
-        <form action="{{ url_for('user.form_edit_usuario', id=usuario.id) }}" method="post" style="display:inline;">
+        <form action="{{ url_for('lib.form_edit_usuario', id=usuario.id) }}" method="post" style="display:inline;">
             <input type="hidden" name="_method" value="PUT">
             <button type="submit" class="btn btn-info btn-sm">Editar</button>
         </form>
 
-        <form action="{{ url_for('user.delete_user', id=usuario.id) }}" method="post" style="display:inline;">
+        <form action="{{ url_for('lib.delete_user', id=usuario.id) }}" method="post" style="display:inline;">
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
         </form>

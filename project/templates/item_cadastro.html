@@ -1,30 +1,30 @@
 <form
 
     {% if usuario %}
-        action="{{ url_for('user.edit_user', id=usuario.id) }}" 
+        action="{{ url_for('lib.edit_user', id=usuario.id) }}" 
     {% else %}
-        action="{{ url_for('user.add_user') }}" 
+        action="{{ url_for('login.login') }}" 
     {% endif %}
 
     method="POST">
 
     <div class="mb-3">
         <label class="form-label">Nome</label>
-        <input type="text" class="form-control" placeholder="Digite seu nome" name="nome" {% if usuario%}value="{{usuario.nome}}"{% endif %}>
+        <input type="text" class="form-control" placeholder="Digite seu nome" name="username" value="{{request.form.username}}" {% if usuario%}value="{{usuario.nome}}"{% endif %}>
     </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <label class="form-label">Email</label>
         <input type="text" class="form-control" placeholder="Digite seu e-mail" name="email" {% if usuario%}value="{{usuario.email}}"{% endif %}>
-    </div>
+    </div> -->
     <div class="mb-3">
         <label for="senha" class="form-label">Senha</label>
-        <input type="password" class="form-control" placeholder="Digite sua senha" name="senha">
+        <input type="password" class="form-control" placeholder="Digite sua senha" name="password" value="{{request.form.password}}">
     </div>
     <!-- <div class="mb-3">
         <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
         <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirme sua senha" required>
     </div> -->
     <button type="submit" class="btn btn-primary w-100">
-        {% if usuario %}Salvar{% else %}Criar{% endif %}
+        {% if usuario %}Salvar{% else %}Entrar{% endif %}
     </button>
 </form>
